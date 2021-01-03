@@ -1,0 +1,397 @@
+.blog-banner {
+    height: 40rem;
+    position: relative;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: inherit;
+        width: 100%;
+        background: rgba($color: rgb(0, 0, 0), $alpha: 0.6);
+        top: 0;
+        left: 0;
+    }
+}
+
+.blog-banner-content {
+    padding: 0 1rem;
+    text-align: center;
+    @include centerElem;
+    color: white;
+    width: 100%;
+    max-width: 520px;
+
+    p:first-of-type {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    p {
+        margin-bottom: 2rem;
+    }
+
+    a {
+        color: black;
+        background: white;
+        padding: 0.8rem 2.2rem;
+        font-weight: 500;
+    }
+}
+
+.blog-category {
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+
+    .content-card {
+        position: relative;
+
+        &::before {
+            content: '';
+            height: 76%;
+            width: 85%;
+            background: rgba($color: rgb(0, 0, 0), $alpha: 0.84);
+            @include centerElem;
+        }
+
+        img {
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+.blog-category-content {
+    @include centerElem;
+    text-align: center;
+    color: white;
+    width: 100%;
+    font-size: 0.9rem;
+
+    p:first-of-type {
+        font-size: 1.2rem;
+        font-weight: 700;
+        position: relative;
+        margin-bottom: 1.4rem;
+
+        &::after {
+            content: '';
+            width: 60%;
+            border-bottom: 2px solid white;
+            position: absolute;
+            bottom: -0.7rem;
+            left: 20%;
+        }
+    }
+}
+
+.blog-article {
+    margin-bottom: 6rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.article-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'a a'
+        'b c'
+        'd e';
+
+    .category {
+        grid-area: a;
+        color: black;
+        margin-bottom: 1.8rem;
+    }
+
+    .info {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+
+        &.user {
+            grid-area: b;
+            @include icon(after, 'Font Awesome 5 Free', 400, '\f007') {
+                color: rgb(51, 51, 51);
+                font-size: 0.8rem;
+                margin-left: 0.4rem;
+            }
+        }
+        &.calendrar {
+            grid-area: c;
+            @include icon(after, 'Font Awesome 5 Free', 400, '\f073') {
+                color: rgb(51, 51, 51);
+                font-size: 0.8rem;
+                margin-left: 0.4rem;
+            }
+        }
+        &.views {
+            grid-area: d;
+            @include icon(after, 'Font Awesome 5 Free', 400, '\f06e') {
+                color: rgb(51, 51, 51);
+                font-size: 0.8rem;
+                margin-left: 0.4rem;
+            }
+        }
+        &.comments {
+            grid-area: e;
+            @include icon(after, 'Font Awesome 5 Free', 400, '\f075') {
+                color: rgb(51, 51, 51);
+                font-size: 0.8rem;
+                margin-left: 0.4rem;
+            }
+        }
+
+        &.right {
+            text-align: right;
+        }
+    }
+}
+
+.blog-article-content {
+    h2 {
+        line-height: 1;
+        margin: 1rem 0 0.8rem 0;
+    }
+
+    p {
+        margin-bottom: 1.8rem;
+    }
+
+    a {
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1.3rem;
+        border: 1px solid rgba($color: #000000, $alpha: 0.5);
+    }
+}
+
+.page-selector {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column-gap: 0.7rem;
+    grid-template-areas: 'a a';
+}
+
+.page-selector-content {
+    grid-area: a;
+    margin: 0 auto;
+    display: flex;
+
+    a,
+    i {
+        color: $txt;
+        font-size: 0.9rem;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        padding: 0.2rem 0.5rem;
+        margin: 0 0.1rem;
+        transition: all 0.3s ease-in-out;
+
+        &.is-active {
+            color: white;
+            background: $link;
+        }
+
+        &:hover {
+            color: white;
+            background: $link;
+        }
+    }
+
+    i {
+        margin: 0.5rem 1rem 0 1rem;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: $lg-breakpoint) {
+    .blog-article {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-column-gap: 0.7rem;
+        grid-template-areas: 'a b';
+    }
+
+    .article-info {
+        grid-area: a;
+        height: max-content;
+        margin-top: 1.5rem;
+        display: block;
+
+        .category {
+            text-align: right;
+        }
+
+        .info {
+            text-align: right;
+        }
+    }
+
+    .blog-article-content {
+        grid-area: b;
+    }
+
+    .page-selector {
+        grid-template-areas: '. a';
+    }
+}
+
+// * Blog Aside
+.search-bar {
+    border: none;
+    border-radius: 50px;
+    background: $link;
+    color: white;
+    font-weight: 400;
+    padding: 0.8rem 15% 0.8rem 1.3rem;
+    margin: 7rem auto 0 auto;
+    width: 90%;
+}
+
+.search {
+    height: 0;
+    width: 100%;
+    @include icon(after, 'Font Awesome 5 Free', 900, '\f002') {
+        color: white;
+        font-size: 1.1rem;
+        position: relative;
+        top: -2.3rem;
+        left: 35%;
+    }
+}
+
+.aside-user {
+    text-align: center;
+
+    img {
+        width: 45%;
+        margin: 4rem auto 2rem auto;
+    }
+
+    .socials-links {
+        i {
+            font-size: 1.3rem;
+            padding: 0.1rem 0.5rem;
+            color: black;
+            opacity: 0.9;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                color: $link;
+            }
+        }
+    }
+}
+
+.user-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 0;
+}
+
+.user-title {
+    margin-top: 0.3rem;
+}
+
+.aside-section-title {
+    width: 100%;
+    font-size: 1.3rem;
+    color: white;
+    background: $link;
+    padding: 0.6rem 0;
+    font-weight: 700;
+    text-align: center;
+    margin: 4.5rem 0 2rem 0;
+}
+
+.aside-popular {
+    margin-bottom: 4rem;
+}
+
+.aside-popular-card {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'a b';
+
+    img {
+        grid-area: a;
+        width: 100%;
+    }
+
+    .aside-popular-info {
+        grid-area: b;
+    }
+}
+
+.aside-popular-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.1;
+    margin: 0 0.7rem;
+
+    p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    p:first-of-type {
+        font-weight: 500;
+        font-size: 1rem;
+        color: black;
+    }
+}
+
+.post-cat {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-of-type {
+        margin-top: -1rem;
+    }
+}
+
+.aside-newsletter {
+    text-align: center;
+
+    form {
+        input {
+            border: 1px solid rgba($color: #000000, $alpha: 0.4);
+            border-right: none;
+            width: 65%;
+        }
+
+        button {
+            width: 35%;
+        }
+    }
+}
+
+.tag-clouds {
+    a {
+        color: rgba($color: #000000, $alpha: 0.8);
+        padding: 0.8rem 1.1rem;
+        display: inline-block;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: $link;
+        }
+    }
+}

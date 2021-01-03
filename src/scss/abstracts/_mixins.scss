@@ -1,0 +1,40 @@
+// * Media screen
+@mixin media($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+// * Fontawesome icon
+// * Ex : " @include icon(before, 'Font Awesome 5 Free', 900, '\f007'){ } "
+.icon::before,
+.icon::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin icon($position, $family, $weight, $unicode) {
+    &::#{$position} {
+        font-family: $family;
+        font-weight: $weight;
+        content: $unicode;
+        @content;
+    }
+}
+
+// * Linear gradient
+@mixin linearGradient($direction, $color-1, $color-2) {
+    background: $color-1;
+    background: linear-gradient($direction, $color-1, $color-2);
+}
+
+// * Common center positionning
+@mixin centerElem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

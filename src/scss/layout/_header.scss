@@ -1,0 +1,201 @@
+.l-header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 68px;
+    background: white;
+}
+
+.l-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 145px;
+        height: 34px;
+    }
+}
+
+// * Burger
+.header-burger-area {
+    padding: 1.3rem;
+    margin-right: -1rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.header-burger {
+    width: 32px;
+    height: 20px;
+    position: relative;
+    vertical-align: top;
+
+    span {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: black;
+        transition: 0.2s;
+
+        &.line-1 {
+            transition: all 0.2s 0.2s, transform 0.2s 0s;
+        }
+        &.line-2 {
+            top: 50%;
+            margin-top: -1px;
+            left: 0;
+            transition: all 0.2s 0.2s;
+        }
+        &.line-3 {
+            bottom: 0;
+            top: auto;
+            left: 0;
+            transition: all 0.2s 0.2s, transform 0.2s 0s;
+        }
+    }
+
+    &.nav-is-active {
+        .line-1 {
+            top: 50%;
+            margin-top: -1px;
+            transform: rotate(45deg);
+            transition: all 0.2s, transform 0.2s 0.2s;
+        }
+        .line-2 {
+            opacity: 0;
+            transition: all 0.2s, opacity 0.2s 0s;
+        }
+        .line-3 {
+            bottom: 50%;
+            margin-bottom: -1px;
+            transform: rotate(-45deg);
+            transition: all 0.2s, transform 0.2s 0.2s;
+        }
+    }
+}
+
+// * Nav
+.header-nav {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background: rgba($color: black, $alpha: 0.73);
+    transition: width 0.3s ease-out;
+
+    ul {
+        padding-top: 2.5rem;
+        display: none;
+    }
+
+    a {
+        display: block;
+        padding: 0.9rem 0 0.9rem 1.5rem;
+        color: white;
+        font-weight: 500;
+        transition: color 0.15s ease-in;
+
+        &.is-active,
+        &:hover {
+            color: $link;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 100vw;
+        height: 0;
+        pointer-events: none;
+        z-index: -10;
+    }
+
+    &.nav-is-active {
+        width: 70%;
+        height: 130vh;
+
+        ul {
+            display: block;
+        }
+
+        &::before {
+            background: rgba($color: black, $alpha: 0.7);
+            height: 130vh;
+        }
+    }
+}
+
+@media screen and (min-width: $md-breakpoint) {
+    .header-burger-area {
+        display: none;
+    }
+
+    .header-nav {
+        position: relative;
+        right: 0;
+        left: unset;
+        width: 470px;
+        height: 68px;
+        background: white;
+
+        ul {
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            color: black;
+            padding: 0;
+            position: relative;
+
+            &::after {
+                content: '';
+                width: 0;
+                position: absolute;
+                bottom: -4px;
+                right: 0;
+                height: 2px;
+                border: none;
+                background: $link;
+                border-radius: 20px;
+                border: none;
+
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover::after {
+                width: 100%;
+                border: 1px solid $link;
+            }
+
+            &.is-active::after {
+                content: '';
+                width: 100%;
+                position: absolute;
+                bottom: -4px;
+                right: 0;
+                height: 2px;
+                border: 1px solid $link;
+                background: $link;
+                border-radius: 20px;
+                transform: translateX(0%);
+            }
+        }
+    }
+}
+
+@include media($lg-breakpoint) {
+    .l-header-content {
+        margin: 0 1rem;
+    }
+}

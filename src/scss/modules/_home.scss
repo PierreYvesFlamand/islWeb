@@ -1,0 +1,302 @@
+// * Hero
+.home-hero {
+    margin-top: 4rem;
+
+    h1 {
+        position: relative;
+
+        &::before {
+            content: 'This is me';
+            position: absolute;
+            top: -1.5rem;
+            left: 0;
+            letter-spacing: 0.1rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+    }
+
+    img {
+        max-width: 70%;
+        margin: 4rem auto 0 auto;
+    }
+}
+
+// * About
+.home-about {
+    margin-top: 4rem;
+    h2 {
+        position: relative;
+
+        &::before {
+            content: 'ABOUT ME';
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            letter-spacing: 0.1rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+    }
+
+    img {
+        width: 100%;
+        margin: 5rem 0;
+    }
+}
+
+// * Services
+.home-services {
+    text-align: center;
+    margin-top: 7rem;
+
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
+        color: black;
+        opacity: 0.9;
+        margin: 3.5rem 0 1rem 0;
+    }
+
+    h4 {
+        margin-bottom: 1.1rem;
+    }
+}
+
+// * Number
+.home-number-show {
+    width: 100%;
+    height: 45rem;
+    @include linearGradient(to right, $gradient-bg-1, $gradient-bg-2);
+    color: white;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+    margin-top: 5rem;
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        div {
+            margin: 1rem 0;
+        }
+    }
+
+    .number {
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+}
+
+// * Projects
+.home-projects {
+    text-align: center;
+    margin-top: 6rem;
+
+    .intro-text {
+        margin-bottom: 6rem;
+    }
+
+    h4 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+.project-img {
+    margin: 1.4rem 0 0.6rem 0;
+    position: relative;
+    border-radius: 20px;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+
+    .hover-effect {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: inherit;
+        background: url(../img/preview.png) center center no-repeat, linear-gradient(to right, rgba($gradient-bg-1, 0.7), rgba($gradient-bg-2, 0.7));
+        opacity: 0;
+        transition: opacity 0.35s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+// * Post
+.home-post {
+    margin-top: 6rem;
+    article {
+        display: grid;
+        grid-template-columns: 2rem 1fr auto auto auto;
+        grid-gap: 0.5rem;
+        grid-template-areas:
+            'a a a a a'
+            'b c d e f'
+            'g g g g g'
+            'h h h h h';
+        margin-top: 3rem;
+
+        .post-img {
+            grid-area: a;
+            display: block;
+        }
+
+        .post-user {
+            grid-area: b;
+            height: 2rem;
+        }
+
+        .post-autor {
+            grid-area: c;
+            color: black;
+        }
+
+        .post-date {
+            grid-area: d;
+        }
+
+        .post-like {
+            grid-area: e;
+        }
+
+        .post-comment {
+            grid-area: f;
+        }
+
+        h4 {
+            grid-area: g;
+        }
+
+        .post-resume {
+            grid-area: h;
+        }
+
+        p {
+            align-self: center;
+            margin: 0;
+            line-height: 0.9;
+        }
+
+        .like,
+        .comment {
+            margin-right: 0.2rem;
+        }
+
+        .like {
+            @include icon(before, 'Font Awesome 5 Free', 400, '\f004');
+        }
+
+        .comment {
+            @include icon(before, 'Font Awesome 5 Free', 400, '\f075');
+        }
+
+        .post-resume {
+            line-height: 1.6;
+        }
+    }
+}
+
+// * Partner
+.home-partner {
+    width: 100%;
+    height: 17rem;
+    @include linearGradient(to right, $gradient-bg-1, $gradient-bg-2);
+    margin-top: 5rem;
+    margin-bottom: -5rem;
+
+    .wrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.partner-content {
+    width: 100%;
+
+    img {
+        width: 9rem;
+        opacity: 0.6;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: $md-breakpoint) {
+    .intro-text {
+        max-width: 510px;
+    }
+
+    // * Hero
+    .home-hero {
+        margin-top: 2rem;
+
+        img {
+            max-width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .home-hero-text {
+        margin-top: 8rem;
+    }
+
+    // * About
+    .home-about {
+        img {
+            margin-top: 2rem;
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    .home-about-text {
+        margin-top: 5rem;
+    }
+
+    // * Number
+    .home-number-show {
+        height: 17rem;
+
+        .wrap {
+            flex-direction: row;
+            justify-content: space-around;
+            height: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: $lg-breakpoint) {
+    .intro-text {
+        max-width: 700px;
+    }
+
+    .hero-text {
+        margin-right: 1rem;
+    }
+
+    .about-text {
+        margin-top: 0;
+    }
+
+    // * Partner
+    .partner-content {
+        pointer-events: none;
+    }
+}

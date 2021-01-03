@@ -1,0 +1,88 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: $txt;
+    background: white;
+
+    &.nav-is-active {
+        overflow: hidden;
+    }
+}
+
+h1 {
+    color: black;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    letter-spacing: 0.1rem;
+}
+
+h2 {
+    color: black;
+    margin: 1rem 0 2.2rem 0;
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+    color: black;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 700;
+}
+
+h5 {
+    color: black;
+    font-size: 1.3rem;
+    margin: 3rem 0 1.2rem 0;
+}
+
+h6 {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 500;
+    margin: 2rem 0 0.5rem 0;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+a {
+    color: $link;
+    text-decoration: none;
+}
+
+input {
+    color: $txt;
+}
+
+.wrap {
+    margin: 0 1rem;
+}
+
+$max-content-width-2: $max-content-width + 32px;
+
+@include media($max-content-width-2) {
+    .wrap {
+        max-width: $max-content-width;
+        margin: 0 auto;
+    }
+}
+
+@include media($md-breakpoint) {
+    .content-card {
+        margin: 0 1rem;
+    }
+}

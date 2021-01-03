@@ -1,0 +1,24 @@
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+// TOOLS
+@import './tools/reset';
+@import './tools/grid';
+
+// BASE
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './abstracts/base';
+
+// LAYOUT
+@import './layout/header';
+@import './layout/main';
+@import './layout/footer';
+
+// MODULES
+@import './modules/home';
+@import './modules/about';
+@import './modules/blog';
+@import './modules/article';
+@import './modules/contact';
+@import './modules/ieFix';

@@ -1,0 +1,178 @@
+.blog-content {
+    margin-top: 6rem;
+}
+
+.article-main-content {
+    p {
+        margin: 0;
+    }
+
+    .category {
+        margin: 1rem 0 1.2rem 0;
+    }
+
+    h2 {
+        margin: 0 0 1.2rem 0;
+    }
+}
+
+.desc-text {
+    margin: 3rem 1.5rem;
+}
+
+.artcile-image {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    grid-template-areas: 'a b';
+
+    .image-0 {
+        grid-area: a;
+    }
+
+    .image-1 {
+        grid-area: b;
+    }
+}
+
+.post-nav {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+
+    .prev,
+    .next {
+        height: 4rem;
+        display: flex;
+        color: $txt;
+
+        img {
+            height: 4rem;
+            width: 4rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    }
+
+    .prev {
+        img {
+            margin-right: 1.1rem;
+        }
+    }
+
+    .next {
+        margin-top: 2rem;
+        text-align: right;
+        float: right;
+
+        img {
+            margin-left: 1.1rem;
+        }
+    }
+
+    .title {
+        font-size: 1.2rem;
+        color: black;
+        font-weight: 700;
+    }
+}
+
+.comment-title {
+    text-align: center;
+    color: black;
+    margin: 6rem 0 3rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.article-comment {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    grid-column-gap: 1.1rem;
+    grid-template-areas:
+        'a b c'
+        'd d d';
+
+    img {
+        grid-area: a;
+        width: 100%;
+        height: 4rem;
+    }
+
+    .comment-content {
+        grid-area: b;
+
+        p {
+            margin: 0;
+        }
+
+        .user {
+            color: black;
+            font-weight: 700;
+        }
+
+        .time {
+            opacity: 0.5;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    a {
+        grid-area: c;
+        color: black;
+        font-weight: 700;
+        padding: 0.5rem 0.1rem;
+        height: max-content;
+        display: block;
+    }
+
+    .reply {
+        grid-area: d;
+        margin: 0 1.5rem;
+    }
+}
+
+@include media($lg-breakpoint) {
+    .article-main-content {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 1.8rem;
+        grid-template-areas: 'a b';
+
+        .article-content {
+            grid-area: b;
+        }
+
+        h2 {
+            margin-top: 1rem;
+        }
+    }
+
+    .post-nav {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .next {
+            margin-top: 0;
+        }
+    }
+
+    .article-comment {
+        a {
+            padding: 0.5rem 0.5rem;
+            margin-right: 1.5rem;
+        }
+    }
+}

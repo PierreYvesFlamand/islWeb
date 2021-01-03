@@ -1,0 +1,66 @@
+// * IE10+ CSS * //
+@media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    body {
+        overflow-x: hidden;
+    }
+
+    // * About
+    .partner-content {
+        display: flex;
+    }
+
+    .feedback-dots {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $md-breakpoint) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    // * About
+    .feedback-content {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+// * Mobile only
+
+@media screen and (max-width: $md-breakpoint) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .header-burger-area {
+        display: none;
+    }
+
+    .l-header {
+        height: 120px;
+    }
+
+    .l-header-content {
+        img {
+            width: 90px;
+            height: 20px;
+        }
+    }
+
+    .header-nav {
+        position: relative;
+        right: 0;
+        left: unset;
+        width: 100%;
+        height: 120px;
+        background: white;
+
+        ul {
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        a {
+            color: black;
+            padding: 0;
+            position: relative;
+        }
+    }
+}
